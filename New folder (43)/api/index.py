@@ -7,7 +7,7 @@ import os
 
 # Configurations
 STRIPE_KEY = 'sk_test_51OQofSHGgwl4L4aF3XjdpXVc8OpHOQIobAsgVwU8ZwGWe2AqbIc8KymV6rf4VgqQ5URavCnYCNDIgHUH1JMLJ98G00cVHukVAU'
-RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 'default_key')
+RESEND_API_KEY = os.environ.get('re_EdwiqeKY_4Bt7YxvXXQG8RMdVTiC7mwke', 'default_key')
 SENDER_EMAIL = "onboarding@resend.dev"  # This is your verified sender
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "password123"
