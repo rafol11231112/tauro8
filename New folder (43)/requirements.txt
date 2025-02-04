@@ -1,2 +1,2 @@
 stripe==5.4.0
-secure-smtplib==0.1.1 
+resend==0.3.0
