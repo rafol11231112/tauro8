@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Panel - Your Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-dots"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="brand-text">Your</span>
+                <span class="brand-text-pro">.store</span>
+                <span class="pro-badge">PRO</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="customer-panel.html" class="active">My Purchases</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="customer-panel">
+        <h1>My Purchases</h1>
+        
+        <div class="purchases-grid" id="purchasesList">
+            <!-- Purchases will be listed here -->
+        </div>
+    </div>
+
+    <script src="customer-panel.js"></script>
+    <script src="verify-payment.js"></script>
+</body>
+</html> 
