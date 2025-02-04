@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Your Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-dots"></div>
+    
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <h1 class="admin-title">Admin Panel</h1>
+            <nav class="sidebar-nav">
+                <a href="admin.html" class="nav-item">
+                    <i class="fas fa-box"></i>
+                    Products
+                </a>
+                <a href="orders.html" class="nav-item active">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+
+        <div class="admin-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-value">2,547</p>
+                    <p class="stat-trend positive">↑ 12.5%</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue</h3>
+                    <p class="stat-value">$47,518</p>
+                    <p class="stat-trend positive">↑ 8.2%</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Order</h3>
+                    <p class="stat-value">$18.65</p>
+                    <p class="stat-trend negative">↓ 3.1%</p>
+                </div>
+            </div>
+
+            <!-- Graph Section -->
+            <div class="graph-container">
+                <div class="table-header">
+                    <h2>Sales Overview</h2>
+                    <select class="filter-select" id="timeRange">
+                        <option value="week">Last 7 Days</option>
+                        <option value="month">Last 30 Days</option>
+                        <option value="year">Last Year</option>
+                    </select>
+                </div>
+                <div class="graph">
+                    <div class="y-axis"></div>
+                    <div class="graph-content">
+                        <div class="graph-grid"></div>
+                        <div class="graph-bars"></div>
+                        <div class="x-axis"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="orders-table">
+                <div class="table-header">
+                    <h2>Recent Orders</h2>
+                    <div class="table-actions">
+                        <input type="text" placeholder="Search orders..." class="search-input">
+                        <select class="filter-select">
+                            <option value="all">All Orders</option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be added here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="orders.js"></script>
+</body>
+</html> 
