@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Your Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="background-dots"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="brand-text">Your</span>
+                <span class="brand-text-pro">.store</span>
+                <span class="pro-badge">PRO</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="#reviews">Reviews</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="product-details-container">
+        <div class="product-details">
+            <div class="product-header">
+                <h1 id="productTitle"></h1>
+                <p class="price" id="productPrice"></p>
+            </div>
+            
+            <div class="product-description" id="productDescription"></div>
+            
+            <div class="stock-selection">
+                <label>Select Item:</label>
+                <select id="stockSelect" class="stock-dropdown">
+                    <option value="">Choose an item...</option>
+                </select>
+            </div>
+
+            <div class="payment-methods">
+                <h3>Payment Methods</h3>
+                <div id="paymentOptions" class="payment-options">
+                    <!-- Payment methods will be added here -->
+                </div>
+            </div>
+
+            <button id="buyButton" class="buy-btn" disabled>
+                <i class="fas fa-shopping-cart"></i> Buy Now
+            </button>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+    <script>
+        let stripe = Stripe('pk_test_51OQofSHGgwl4L4aFBCBC75IHsfCXl4cV1yF3zFqpAdGJjprOTMVrgtawnBfSwzJOoePfshv1bdcnzFPyddaZl6bx00AHnVHXAJ');
+    </script>
+</body>
+</html> 
