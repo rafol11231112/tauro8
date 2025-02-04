@@ -1,60 +1,38 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import stripe
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import random
-import string
+import resend
 from datetime import datetime
+import os
 
 # Configurations
 STRIPE_KEY = 'sk_test_51OQofSHGgwl4L4aF3XjdpXVc8OpHOQIobAsgVwU8ZwGWe2AqbIc8KymV6rf4VgqQ5URavCnYCNDIgHUH1JMLJ98G00cVHukVAU'
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-SENDER_EMAIL = "refaellugasi10@gmail.com"
-SENDER_PASSWORD = "xhpy nded imfp ygtc"  # Your existing working password
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 'default_key')
+SENDER_EMAIL = "onboarding@resend.dev"  # This is your verified sender
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "password123"
 
-# Initialize Stripe
+# Initialize APIs
 stripe.api_key = STRIPE_KEY
+resend.api_key = RESEND_API_KEY
 
 def send_email(to_email, subject, body):
     try:
         print(f"Attempting to send email to: {to_email}")
-        msg = MIMEMultipart()
-        msg['From'] = f"Your Store <{SENDER_EMAIL}>"
-        msg['To'] = to_email
-        msg['Subject'] = subject
         
-        msg.attach(MIMEText(body, 'plain'))
+        params = {
+            "from": SENDER_EMAIL,
+            "to": to_email,
+            "subject": subject,
+            "text": body
+        }
         
-        # Add debug logging
-        print("Connecting to SMTP server...")
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.set_debuglevel(1)  # Enable debug output
-        
-        print("Starting TLS...")
-        server.starttls()
-        
-        print("Logging in...")
-        server.login(SENDER_EMAIL, SENDER_PASSWORD)
-        
-        print("Sending message...")
-        server.send_message(msg)
-        
-        print("Closing connection...")
-        server.quit()
-        
-        print("Email sent successfully!")
+        response = resend.Emails.send(params)
+        print("Email sent successfully!", response)
         return True
         
     except Exception as e:
         print(f"Failed to send email: {str(e)}")
-        print(f"Error type: {type(e)}")
-        import traceback
-        traceback.print_exc()
         return False
 
 class handler(BaseHTTPRequestHandler):
